@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Food Recommendation System</h1>
+</header>
+
+<div class="container">
+    <!-- <h1 class="main-heading">Food Recommendation System</h1> -->
+    <form class="user-form" method="post">
+        <label for="age">Age:</label>
+        <input type="number" name="age" required>
+
+        <label for="height">Height (in CM):</label>
+        <input type="number" name="height" required>
+
+        <label for="weight">Weight:</label>
+        <input type="number" name="weight" required>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="activity_level">Activity Level:</label>
+        <select name="activity_level" required>
+            <option value="sedentary">Sedentary</option>
+            <option value="light">Light activity</option>
+            <option value="moderate">Moderately active</option>
+            <option value="active">Very active</option>
+        </select>
+
+        <!-- <label for="calorie_intake">Daily Calorie Intake:</label>
+        <input type="number" name="calorie_intake" placeholder="Optional"> -->
+
+        <button type="submit" class="submit-button">Get Recommendations</button>
+    </form>
+
+    {% if bmi and bmr %}
+        <p class="result">BMI: {{ bmi }}</p>
+        <p class="result">Total calories: {{ bmr }} </p>
+        <!-- <p class="result">BMR: {{ bmr }} calories/day</p> -->
+    {% endif %}
+
+    {% if recommended_breakfast and recommended_lunch %}
+
+    <h2 class="sub-heading">Recommended Foods</h2>
+    
+    <h3 class="meal-heading">Breakfast recommended  {{ t_b }} calories</h3>
+    <ul class="food-list">
+        {% for food, calories in recommended_breakfast %}
+            <li class="food-item">
+                <span class="food-name">{{ food }}</span>
+                <span class="food-calories">{{ calories }} Calories</span>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <h3 class="meal-heading">Lunch recommended {{ t_l }} calories</h3>
+    <ul class="food-list">
+        {% for food, calories in recommended_lunch %}
+            <li class="food-item">
+                <span class="food-name">{{ food }}</span>
+                <span class="food-calories">{{ calories }} Calories</span>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <h3 class="meal-heading">Dinner recommended {{ t_d }} calories</h3>
+    <ul class="food-list">
+        {% for food, calories in recommended_dinner %}
+            <li class="food-item">
+                <span class="food-name">{{ food }}</span>
+                <span class="food-calories">{{ calories }} Calories</span>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

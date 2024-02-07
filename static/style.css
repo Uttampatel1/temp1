@@ -1,0 +1,146 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #45a049;
+    --text-color: #333;
+    --border-color: #ccc;
+    --background-color: #f7f7f7;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    overflow: hidden; /* Ensure child elements don't overflow */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    /* text-transform: uppercase; */
+}
+
+
+.main-heading {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.user-form {
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 26px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-color);
+}
+
+
+.sub-heading {
+    margin-top: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.food-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.food-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.food-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.food-name {
+    /* font-weight: bold; */
+    font-size: medium;
+    /* font-size: 16px; */
+}
+
+.food-calories {
+    color: #777;
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+    .user-form {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}
